@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Taller Web I</title>
+
+    <!-- Boostrap core css -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+
+    <!-- custom style -->
+    <link rel="stylesheet" th:href="@{/css/seleccion_heroes.css}"/>
+
+</head>
+
+<body>
+    <main>
+        <!-- Barra de Navegación -->
+        <nav>
+            <a href="instrucciones.html">Instrucciones</a>
+            <a href="mejorar-heroes.html">Mejorar Héroes</a>
+            <a href="puntajes.html">Puntajes</a>
+        </nav>
+
+        <div>
+            <h1>Selecciona tus Héroes</h1>
+                <div class="heroes-grid" >
+
+                    <div th:each="heroe : ${heroes_obtenidos}" class="hero-card" >
+
+                            <!-- Imagen del héroe -->
+                            <div class="hero-image">
+                                <img th:src="@{${heroe.urlImagen}}" class="img-fluid" alt="imagen" style="max-width: 100px; height: auto;" >
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title" th:text="'Lv. ' + ${heroe.getNivel()}">nivels vacio</h5>
+                                <h5 class="card-title" th:text="'Nombre: ' + ${heroe.nombre}">nobreVacio</h5>
+                                <p class="card-text" th:text="'Precio: ' + ${heroe.precio}">precioVacio</p>
+
+                                <a th:href="@{/seleccionar_heroe/__${heroe.id}__}"
+                                   class="btn btn-primary w-100">
+                                    Seleccionar
+                                </a>
+
+                            </div>
+
+                    </div>
+                </div>
+
+                    <!-- Mensaje si no hay héroes -->
+                    <div th:if="${mensaje1}" class="alert alert-warning">
+                        <p th:text="${mensaje1}"></p>
+                        <p>Debes reclutar nuevos heroes</p>
+
+                    </div>
+
+            <a class="button" th:href="@{/home}">Volver al Home</a>
+        </div>
+
+
+    </main>
+<!-- /.container -->
+
+<!-- Boostrap core js -->
+<script type="text/javascript" th:src="@{webjars/bootstrap/5.2.0/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{js/main.js}"></script>
+</body>
+</html>

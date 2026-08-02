@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Taller Web I</title>
+
+    <!-- Boostrap core css -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+
+    <!-- custom style -->
+    <link rel="stylesheet" th:href="@{/css/home.css}"/>
+
+</head>
+
+<body>
+
+<main>
+    <img th:src="@{/imagenes/logo.png}" alt="Logo"
+         style="max-width: 400px; width: 70vw; margin-top: 24px; margin-bottom: 24px; display: block;"/>
+
+    <div class="menu" style="max-width: 340px; margin: 0 auto;">
+        <div th:if="${mensaje}" class="alert alert-success text-center" th:text="${mensaje}"></div>
+        <div th:if="${error}" class="alert alert-danger text-center" th:text="${error}"></div>
+        <div th:if="${oro}" class="alert alert-info text-center mb-2">
+            Tu oro actual: <span th:text="${oro}">0</span>
+        </div>
+
+        <a th:unless="${tieneSesionActiva}"
+           th:href="@{/carruaje}"
+           class="btn btn-lg btn-primary w-100 mb-2">
+            Iniciar Nueva Partida
+        </a>
+        <a th:if="${tieneSesionActiva}"
+           th:href="@{/juego}"
+           class="btn btn-lg btn-success w-100 mb-2">
+            Continuar Partida
+        </a>
+        <a class="btn btn-lg btn-secondary w-100 mb-2" th:href="@{/reglas}">
+            &#128221; Ver reglas &#128221;
+        </a>
+        <a class="btn btn-lg btn-secondary w-100 mb-2" th:href="@{/carruaje}">
+            &#9876;&#65039; Reclutar Héroes nuevos &#9876;&#65039;
+        </a>
+        <a class="btn btn-lg btn-secondary w-100 mb-2" th:href="@{/santuario}">
+            &#10084;&#65039; Ir al Santuario &#10084;&#65039;
+        </a>
+        <a class="btn btn-lg btn-secondary w-100 mb-2" th:href="@{/ver-tienda}">
+            &#128176; Ir a la tienda &#128176;
+        </a>
+        <a class="btn btn-lg btn-warning w-100 mb-2" th:href="@{/ranking}">
+            &#127942; Ver Ranking de Jugadores &#127942;
+        </a>
+        <a class="btn btn-lg w-100 mb-2"
+           style="background-color:#ffb3b3; color:#b30000; border:1px solid #b30000;"
+           th:href="@{/cerrar_sesion}">
+            Cerrar Sesión
+        </a>
+    </div>
+</main>
+
+
+<!-- /.container -->
+
+<!-- Boostrap core js -->
+<script type="text/javascript" th:src="@{webjars/bootstrap/5.2.0/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{js/main.js}"></script>
+</body>
+</html>

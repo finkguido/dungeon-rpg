@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Reglas | Darkest Dungeon</title>
+
+    <!-- Bootstrap core css -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+    <!-- custom style -->
+    <link rel="stylesheet" th:href="@{/css/reglas.css}"/>
+    <style>
+        body {
+            background: #18191a;
+            color: #e0e6eb;
+        }
+        main {
+            max-width: 600px;
+            margin: 70px auto 30px auto;
+            background: #20242b;
+            border-radius: 22px;
+            box-shadow: 0 0 32px 0 #000a;
+            padding: 38px 32px 30px 32px;
+        }
+        h1 {
+            color: #7eeaff;
+            font-size: 2.3em;
+            text-align: center;
+            margin-bottom: 28px;
+            letter-spacing: 1.5px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #0cf6, 0 2px 1px #0007;
+        }
+        h2 {
+            color: #03c7b6;
+            font-size: 1.3em;
+            margin-top: 30px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        ul {
+            background: #23283a;
+            padding: 16px 22px 14px 30px;
+            border-radius: 15px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 10px #0002;
+        }
+        li {
+            margin-bottom: 8px;
+            font-size: 1.09em;
+        }
+        a.btn-volver {
+            display: inline-block;
+            margin-top: 42px;
+            color: #fff;
+            background: linear-gradient(90deg, #0fc0a9 0%, #7eeaff 100%);
+            font-weight: bold;
+            padding: 12px 36px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-size: 1.13em;
+            box-shadow: 0 2px 18px #03c7b622;
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+        }
+        a.btn-volver:hover {
+            background: linear-gradient(90deg, #7eeaff 0%, #0fc0a9 100%);
+            color: #222;
+            box-shadow: 0 4px 24px #0fc0a933;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<main>
+    <h1>Reglas del Juego</h1>
+
+    <h2>1. Flujo General</h2>
+    <ul>
+        <li>Selecciona 3 héroes con estadísticas distintas.</li>
+        <li>Explora expediciones y mazmorras con combates por turnos.</li>
+        <li>Enfrenta enemigos, consigue recompensas y sube de nivel.</li>
+    </ul>
+
+    <h2>2. Combate por Turnos</h2>
+    <ul>
+        <li>Cada héroe y enemigo actúa por turnos.</li>
+        <li>Puedes atacar, defenderte o usar ítems.</li>
+    </ul>
+
+    <h2>3. Sistema de Salud</h2>
+    <ul>
+        <li>La salud disminuye en combate. Si llega a cero, el héroe cae.</li>
+        <li>Puedes recuperar salud usando pociones o en el santuario.</li>
+    </ul>
+
+    <h2>4. Progresión</h2>
+    <ul>
+        <li>Al finalizar cada nivel recibes 250 de oro y avanzas en la expedición.</li>
+        <li>Cada expedición cuenta con 3 mazmorras. Tras completar la tercera, la dificultad aumenta.</li>
+    </ul>
+
+    <div style="text-align: center;">
+        <a th:href="@{/home}" class="btn-volver">
+             Volver al inicio
+        </a>
+    </div>
+</main>
+
+<!-- Bootstrap core js -->
+<script type="text/javascript" th:src="@{webjars/bootstrap/5.2.0/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{js/main.js}"></script>
+</body>
+</html>

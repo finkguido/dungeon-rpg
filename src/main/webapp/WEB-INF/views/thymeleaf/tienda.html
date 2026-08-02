@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Tienda</title>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}" />
+  <link rel="stylesheet" th:href="@{/css/tienda.css}" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="#">DUNGEON SHOP</a>
+</nav>
+
+<main role="main" class="container text-light mt-5">
+  <div class="tienda-box">
+    <h1 class="titulo">Tienda del jugador</h1>
+
+    <p th:text="${mensaje}" class="mensaje text-info"></p>
+
+    <h3>Oro disponible: <span th:text="${usuario.oro}"></span></h3>
+
+    <form th:action="@{/tienda/comprar}" method="post">
+      <div class="form-group">
+        <label for="itemId">Comprar Items:</label>
+        <select id="itemId" name="itemId" class="form-select" required>
+          <option value="" disabled selected>Selecciona un ítem</option>
+          <option th:each="item : ${items}"
+                  th:value="${item.id}"
+                  th:text="${item.nombre + ' - Precio: ' + item.precio}">
+          </option>
+        </select>
+      </div>
+      <div class="d-grid mt-3">
+        <button type="submit" class="btn btn-success">Comprar</button>
+      </div>
+    </form>
+
+    <h3 class="mt-4">Inventario del jugador:</h3>
+    <ul class="inventario-list">
+      <li th:if="${#lists.isEmpty(itemsDeInventario)}">No hay ítems en el inventario.</li>
+      <li th:each="entry : ${inventarioAgrupado.entrySet()}" th:unless="${#lists.isEmpty(itemsDeInventario)}">
+        <span th:text="${entry.key}"></span>
+        <span th:text="' x' + ${entry.value}" style="color:#90ee90;"></span>
+      </li>
+    </ul>
+
+
+    <div class="d-grid mt-3">
+      <a class="button" th:href="@{/comprar-oro}">Comprar Oro</a>
+    </div>
+
+    <div class="d-grid mt-3">
+      <a class="button" th:href="@{/home}">Ir al home</a>
+    </div>
+
+
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ranking de Jugadores</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/ranking.css}"/>
+</head>
+<body>
+<div class="ranking-container">
+    <h1>Ranking de Jugadores</h1>
+    <table class="table table-ranking">
+        <thead>
+        <tr>
+            <th>Posición</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Expedición</th>
+            <th>Mazmorra</th>
+            <th>Oro</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="u, iter : ${ranking}"
+            th:classappend="${iter.index == 0} ? 'top1' : (${iter.index == 1} ? 'top2' : (${iter.index == 2} ? 'top3' : ''))">
+            <td>
+                <span th:if="${iter.index == 0}" style="font-size:1.4em;">&#129351;</span>
+                <span th:if="${iter.index == 1}" style="font-size:1.4em;">&#129352;</span>
+                <span th:if="${iter.index == 2}" style="font-size:1.4em;">&#129353;</span>
+                <span th:if="${iter.index > 2}" th:text="${iter.index + 1}"></span>
+            </td>
+            <td th:text="${u.nombre}"></td>
+            <td th:text="${u.email}"></td>
+            <td th:text="${u.expedicionActual}"></td>
+            <td th:text="${u.mazmorraActual}"></td>
+            <td th:text="${u.oro}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a class="btn-back" th:href="@{/home}">Volver al Home</a>
+</div>
+</body>
+</html>

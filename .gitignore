@@ -1,0 +1,43 @@
+*.class
+*.DS_Store
+Thumbs.db
+
+/target
+/work/
+/data
+
+# IDE
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.mtj.tmp/
+/.tomcatplugin
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# Secrets / local config
+application-local.properties
+.env
+.env.*
+!.env.example
+
+# Binaries that should never be in the repo
+*.exe
+ngrok.exe
+ngrok
+
+# JS deps (si se usan tests de JS)
+src/main/webapp/resources/core/js/node_modules
+
+# Logs / crash dumps
+*.log
+hs_err_pid*
+
+# Misc delivery junk
+tatus
+pendientes.txt

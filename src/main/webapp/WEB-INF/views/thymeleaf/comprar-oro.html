@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Comprar Oro</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/comprar-oro.css}" />
+</head>
+<body>
+<h1>Comprar Oro</h1>
+<div th:if="${mensaje}"
+     th:classappend="${mensaje.contains('exitosa')} ? 'alert-success' : 'alert-danger'"
+     id="mensaje-compra"
+     class="alert text-center w-75 mx-auto mt-4">
+    <p th:text="${mensaje}"></p>
+</div>
+<div id="wallet_container">
+    <div class="paquete">
+        <div class="paquete-img-container">
+            <img th:src="@{/imagenes/imagen-oro2.png}" alt="100 monedas" class="paquete-img" />
+        </div>
+        <p>100 monedas de oro - $1000</p>
+        <button type="button" onclick="comprar('PAQUETE_100', 10)">Comprar</button>
+    </div>
+    <div class="paquete">
+        <div class="paquete-img-container">
+            <img th:src="@{/imagenes/imagen-oro2.png}" alt="150 monedas" class="paquete-img" />
+        </div>
+        <p>150 monedas de oro - $1500</p>
+        <button type="button" onclick="comprar('PAQUETE_150', 15)">Comprar</button>
+    </div>
+    <div class="paquete">
+        <div class="paquete-img-container">
+            <img th:src="@{/imagenes/imagen-oro2.png}" alt="250 monedas" class="paquete-img" />
+        </div>
+        <p>250 monedas de oro - $2200</p>
+        <button type="button" onclick="comprar('PAQUETE_250', 22)">Comprar</button>
+    </div>
+</div>
+<a class="button" th:href="@{/ver-tienda}">Volver a la Tienda</a>
+<script th:src="@{/js/mercadoPago.js}" defer></script>
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        const mensaje = document.getElementById("mensaje-compra");
+        if (mensaje) {
+            setTimeout(() => {
+                mensaje.style.transition = "opacity 0.5s ease";
+                mensaje.style.opacity = "0";
+                setTimeout(() => mensaje.remove(), 500);
+            }, 3000);
+        }
+    });
+</script>
+</body>
+</html>

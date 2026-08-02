@@ -1,0 +1,52 @@
+body {
+    background-color: #111;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding-top: 70px;
+}
+
+.tienda-box {
+    background-color: #222;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 50px auto;
+    box-shadow: 0 0 15px rgba(126, 214, 223, 0.3);
+}
+
+.titulo {
+    color: #7ed6df;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.mensaje {
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.inventario-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+a.button {
+    padding: 15px 30px;
+    background-color: #30336b;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+a.button:hover {
+    background-color: #535c91;
+}
+
+.inventario-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid #444;
+    color: #eee;
+}

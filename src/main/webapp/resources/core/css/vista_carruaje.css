@@ -1,0 +1,128 @@
+.hero-image_fondo{
+    background-image: url("../imagenes/cruzado.webp");
+}
+
+/* vista_carruaje.css */
+
+body {
+    background: #181a20;
+    color: #e0f6ff;
+    min-height: 100vh;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+main .container {
+    background: rgba(30,34,46,0.97);
+    border-radius: 22px;
+    padding: 38px 28px 32px 28px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 6px 24px 0 rgba(26,38,66,0.28);
+    border: 1px solid #252941;
+    max-width: 1200px;
+}
+
+h2 {
+    color: #75eaf9;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+.card {
+    background: rgba(34, 39, 60, 0.98);
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(40,40,60,0.13);
+    transition: transform 0.13s;
+}
+.card:hover {
+    transform: translateY(-5px) scale(1.04);
+    box-shadow: 0 8px 22px rgba(90,215,255,0.13);
+}
+.card-title {
+    color: #ffd964;
+    font-weight: 600;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+}
+.card-text {
+    color: #9fdaf5;
+    margin-bottom: 7px;
+    font-size: 1.07em;
+}
+.card .btn-primary {
+    background: linear-gradient(90deg,#52ddff,#006eff);
+    border: none;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 8px;
+    margin-top: 6px;
+    box-shadow: 0 2px 8px rgba(60,120,255,0.15);
+    transition: background 0.13s;
+}
+.card .btn-primary:hover {
+    background: linear-gradient(90deg,#2ad7ff,#5f82ff);
+}
+.card .btn-outline-danger {
+    border-radius: 8px;
+    border-width: 2px;
+    font-weight: 500;
+    color: #ff7681;
+    margin-top: 6px;
+    background: transparent;
+    transition: background 0.12s, color 0.12s;
+}
+.card .btn-outline-danger:hover {
+    background: #3c2227;
+    color: #fff;
+    border-color: #ff8e99;
+}
+
+.border-success {
+    border: 2px solid #38fa93 !important;
+}
+
+.alert-warning, .alert-info {
+    border-radius: 8px;
+    font-size: 1.08em;
+    background: rgba(255,255,200,0.09);
+    color: #ffe178;
+    margin-top: 14px;
+    border: 1.2px solid #ffe1784a;
+}
+.alert-info {
+    background: rgba(130,220,255,0.10);
+    color: #aefbff;
+    border-color: #aefbff6c;
+}
+
+.btn-secondary {
+    background: #2b3a45;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 500;
+    margin-top: 18px;
+    border: none;
+    transition: background 0.15s;
+    padding: 9px 30px;
+}
+.btn-secondary:hover {
+    background: #32455d;
+}
+
+.btn-success {
+    background: linear-gradient(90deg,#22c965,#32f7b5);
+    border: none;
+    font-weight: 600;
+    border-radius: 9px;
+    box-shadow: 0 1px 10px 0 #0deca65a;
+    color: #163f2e;
+    letter-spacing: 0.5px;
+    margin-top: 6px;
+}
+.btn-success:hover {
+    background: linear-gradient(90deg,#38fa93,#36e0ba);
+    color: #0f3534;
+}

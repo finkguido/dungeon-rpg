@@ -1,0 +1,308 @@
+.body_partida{
+    background-color: #151414;
+}
+.max_wihdth_1600px {
+    max-width: 1600px;
+    margin: auto;
+}
+
+.margin_top_20px {
+    margin-top: 20px;
+}
+
+.min_height_100px {
+    min-height: 100px;
+}
+
+.min_height_320px {
+    min-height: 320px;
+}
+
+.min_height_420px {
+    min-height: 420px;
+}
+
+@media (max-width: 1100px) {
+    .mediaquery {
+        max-width: 1100px;
+    }
+}
+
+@media (min-width: 1101px) and (max-width: 1299px) {
+    .mediaquery {
+        max-width: 1400px;
+    }
+}
+
+@media (min-width: 1300px) {
+    .mediaquery {
+        min-width: 1300px;
+        max-width: 1390px;
+    }
+}
+
+@media (min-width: 1520px) {
+    .mediaquery {
+        min-width: 1300px;
+        max-width: 1700px;
+    }
+}
+
+.encabezado_grid {
+    display: grid;
+    grid-template-columns: repeat(17, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 3px;
+    height: 100px;
+    color: rgb(123, 34, 34);
+    padding: 3px;
+    border: solid 3px rgb(49, 37, 37);
+}
+
+/* Tamaños */
+.celda-1 {
+    grid-column: 1/3;
+}
+
+.celda-2 {
+    grid-column: 3/7;
+}
+
+.celda-3 {
+    grid-column: 7/9;
+}
+
+.celda-4 {
+    grid-column: 9/11;
+}
+
+.celda-5 {
+    grid-column: 11/13;
+}
+
+.celda-6 {
+    grid-column: 13/15;
+}
+
+.celda-7 {
+    grid-column: 15/17;
+}
+
+.celda-8 {
+    grid-column: 17/18;
+}
+
+.health-bar {
+    height: 30px;
+    transition: width 0.3s ease-out;
+}
+
+.container_vida {
+    max-width: 100%;
+    margin: 0px;
+}
+
+.health-value {
+    font-size: 1rem;
+    font-weight: bold;
+}
+.min_height_carta{
+    min-height: 420px;
+}
+
+.d_flex {
+    display: flex;
+}
+.justify_content_s_bwt {
+    justify-content: space-between;
+}
+
+.align_items_center{align-items: center;}
+
+.barra_de_estado_vida_grad{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(to right, rgb(143, 36, 36), transparent);
+    border: 1px solid #4f433c;
+}
+.barra_de_estado_estres_grad{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(to right, rgb(255 255 255), transparent);
+    border: 1px solid rgb(78, 66, 59);
+}
+
+
+.mi_fondo {
+    background-image: url('../imagenes/fondo_dungeon.png'); /* URL de la imagen de fondo */
+    background-size: cover;       /* Ajusta la imagen al tamaño del contenedor */
+    background-position: center;  /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que se repita */
+}
+
+.bordear_divs_hijos > div {
+    border: solid 1px #2e1e1e;
+}
+
+
+.inventory-container {
+    width: 100%;
+    max-width: 800px;
+}
+
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1px;
+    background-color: #333;
+    padding: 1px;
+    border: 2px solid #444;
+}
+
+.inventory-slot {
+    aspect-ratio: 2/4;
+    background-color: #000;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.inventory-slot:hover {
+    background-color: #111;
+}
+
+.item {
+    width: 70%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.item-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #555;
+    pointer-events: none;
+}
+
+/* Estilos específicos para diferentes tipos de ítems */
+.item-potion { filter: sepia(50%) hue-rotate(80deg); }
+.item-scroll { filter: sepia(20%) brightness(0.8); }
+.item-weapon { filter: brightness(0.9) contrast(1.1); }
+
+
+/* Contenedor Equipamiento*/
+.contenedor-equipamiento {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+    gap: 20px;
+    padding: 0px;
+    border: 2px solid #331a1a; /* Borde rojo oscuro */
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Sección izquierda */
+.contenedor-equipamiento__left-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+    gap: 10px;
+    border: 2px solid #352117; /* Borde marrón oscuro */
+    padding: 1px;
+    box-sizing: border-box;
+}
+.contenedor-equipamiento__left-section__carta {
+    border: 2px solid #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor-equipamiento__left-section__carta__subcarta {
+    display: grid;
+    grid-template-rows: 40px 190px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #212121;
+    box-shadow: 0 0 0 1px #000;
+}
+.contenedor-equipamiento__left-section__carta__subcarta__item-num {
+    background-color: #111;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+.contenedor-equipamiento__left-section__carta__subcarta__item-num__num {
+    position: absolute;
+    right: 25px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.contenedor-equipamiento__left-section__carta__subcarta__item-img {
+    background-color: #000;
+    place-items: center;
+    padding: 5px;
+    height: 100%;
+}
+
+/* Sección derecha */
+.contenedor-equipamiento__right-section {
+    display: grid;
+    grid-template-rows: 0.55fr 2.5fr;
+    gap: 2px;
+    border: 2px solid #352117;
+    padding: 1px;
+    box-sizing: border-box;
+}
+
+.contenedor-equipamiento__right-section__top-container {
+    border: 2px solid #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-equipamiento__right-section__abajo-conteiner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.contenedor-equipamiento__right-section__abajo-conteiner__carta {
+    border: 2px solid #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+  border-radius: 20px !important;
+  box-shadow: 0 3px 14px 2px rgba(0,0,0,0.18);
+}
+
+.card-body {
+  padding: 1.2rem 1rem !important;
+}
+
+/********** FIN - Contenedor Equipamiento ********/

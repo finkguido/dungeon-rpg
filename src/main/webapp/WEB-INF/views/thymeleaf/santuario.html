@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Santuario | Dungeon Seekers</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+    <style>
+        body { background: #1a1d23; color: #eee;}
+        .card-hero { background: #20242b; border-radius: 16px; box-shadow: 0 4px 16px #0007; margin-bottom: 20px; }
+        .btn-curar { background: #7eeaff; color: #222; font-weight: bold;}
+        .btn-curar[disabled] { background: #444a; color: #aaa;}
+    </style>
+</head>
+<body>
+<main class="container mt-5" style="max-width:650px;">
+    <h1 class="mb-4 text-center" style="color:#7eeaff;">Santuario de Curación</h1>
+    <div class="mb-3">
+        <span style="font-size:1.2em;">Oro actual: <span th:text="${usuario.oro}">0</span></span>
+    </div>
+    <div th:if="${mensaje}" class="alert alert-success" th:text="${mensaje}"></div>
+    <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+
+    <div th:each="heroe : ${heroes}" class="card card-hero p-3 mb-3">
+        <div class="d-flex align-items-center">
+            <img th:src="@{${heroe.urlImagen}}" alt="Heroe" style="height:54px;width:54px;margin-right:16px; border-radius:8px;">
+            <div>
+                <h5 th:text="${heroe.nombre}" style="margin-bottom:6px;"></h5>
+                <span>
+                    Vida: <span th:text="${heroe.vidaActual}"></span> / <span th:text="${heroe.maxVida}"></span>
+                </span>
+            </div>
+            <form th:action="@{/santuario/curar}" method="post" class="ms-auto">
+                <input type="hidden" name="idHeroe" th:value="${heroe.id}"/>
+                <button class="btn btn-curar" type="submit"
+                        th:disabled="${heroe.vidaActual} == ${heroe.maxVida}">
+                    Curar (50 oro)
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a class="btn btn-outline-info" th:href="@{/home}">Volver a Home</a>
+    </div>
+</main>
+</body>
+</html>

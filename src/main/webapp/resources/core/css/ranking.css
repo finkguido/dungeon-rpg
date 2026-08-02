@@ -1,0 +1,120 @@
+body {
+    background: #1e1e2f;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.ranking-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px 28px 24px 28px;
+    background: rgba(30, 30, 47, 0.98);
+    border-radius: 20px;
+    box-shadow: 0 6px 24px 3px rgba(0,0,0,0.26);
+    border: 2px solid #7ed6df33;
+}
+
+h1 {
+    text-align: center;
+    color: #7ed6df;
+    margin-bottom: 32px;
+    letter-spacing: 2px;
+}
+
+.table-ranking {
+    width: 100%;
+    background: #22223b;
+    color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 8px #22223b66;
+}
+
+.table-ranking th, .table-ranking td {
+    text-align: center;
+    padding: 16px 8px;
+}
+
+.table-ranking th {
+    background: #191932;
+    color: #f9ca24;
+    font-size: 1.05em;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #2d98da;
+}
+
+.table-ranking tr:nth-child(odd) {
+    background: #24243a;
+}
+
+.table-ranking tr:nth-child(even) {
+    background: #22223b;
+}
+
+.table-ranking tr:hover {
+    background: #34495e80;
+}
+
+.table-ranking td:first-child {
+    font-weight: bold;
+    color: #00b894;
+    font-size: 1.2em;
+}
+
+.btn-back {
+    margin-top: 26px;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    background: #2d98da;
+    color: #fff !important;
+    font-weight: bold;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 9px;
+    text-decoration: none;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px #22223b66;
+}
+
+.btn-back:hover {
+    background: #1abc9c;
+    color: #191932 !important;
+    text-decoration: none;
+}
+
+.table-ranking tr.top1 {
+    background: linear-gradient(90deg, #fff7b2 0%, #ffe09f 100%);
+    color: #0e2343 !important;
+    font-weight: bold;
+    box-shadow: 0 0 12px #ffe09f77;
+}
+
+.table-ranking tr.top2 {
+    background: linear-gradient(90deg, #e3e3e3 0%, #cfd8dc 100%);
+    color: #263238 !important;
+    font-weight: bold;
+    box-shadow: 0 0 10px #b0bec577;
+}
+
+.table-ranking tr.top3 {
+    background: linear-gradient(90deg, #f5cfaf 0%, #e1a574 100%);
+    color: #4e342e !important;
+    font-weight: bold;
+    box-shadow: 0 0 8px #e1a57499;
+}
+
+
+@media (max-width: 700px) {
+    .ranking-container {
+        padding: 10px;
+    }
+    .table-ranking th, .table-ranking td {
+        padding: 8px 2px;
+        font-size: 0.95em;
+    }
+}
+

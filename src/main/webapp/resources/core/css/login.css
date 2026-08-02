@@ -1,0 +1,90 @@
+body {
+    background-color: #111;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding-top: 70px;
+    color: #eee;
+}
+
+h3 {
+    color: #7ed6df;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(126, 214, 223, 0.3);
+}
+
+label {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    color: #ccc;
+}
+
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 15px;
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: 2px solid #7ed6df;
+    background-color: #444;
+}
+
+button[type="submit"] {
+    background-color: #30336b;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    width: 80%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #535c91;
+}
+
+.alert {
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    animation: fadeIn 0.5s;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+a {
+    color: #7ed6df;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,10 @@
+# Copiá este archivo como application-local.properties y completá los valores.
+# application-local.properties NO se sube a GitHub.
+
+# Access Token de Mercado Pago (credenciales de prueba o producción)
+mp.access-token=APP_USR-reemplazar-con-tu-token
+
+# URL pública de la app para los callbacks de Mercado Pago.
+# En local con ngrok: https://xxxx.ngrok-free.app
+# Sin pagos reales, podés dejar localhost:
+app.base-url=http://localhost:8080

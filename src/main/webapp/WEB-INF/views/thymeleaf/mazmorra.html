@@ -1,0 +1,482 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Taller Web I</title>
+
+  <!-- Boostrap core css -->
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+
+  <!-- custom style -->
+  <link rel="stylesheet" th:href="@{/css/mazmorra.css}"/>
+
+
+</head>
+
+<body class="body_partida" >
+<main>
+  <div class="container mediaquery">
+    <div class="mi_fondo">
+      <!-- Fila 1 -->
+      <div class="row mb-1">
+        <div class="col-12 text-white text-center py-3 min_height_100px">
+          5
+        </div>
+      </div>
+
+      <!-- Fila 2 (mitad->izquierda, mitad->derecha) -->
+      <div class="row mb-1">
+        <div class="col-6 text-white text-center min_height_420px">
+          <div class="container" style="width: 700px; margin-left: 0px">
+            <div class="row">
+              <div
+                      class="col-3 d-flex align-items-center justify-content-center text-white min_height_carta">
+                60
+              </div>
+              <div
+                      class="col-3 d-flex align-items-center justify-content-center text-white min_height_carta">
+                61
+              </div>
+              <div
+                      class="col-3 d-flex align-items-center justify-content-center text-white min_height_carta">
+                <div class="row">
+                  <!-- carta-arriba -->
+                  <div class="col-12 text-white" style="min-height: 80px">
+                    50
+                  </div>
+
+                  <!-- carta-central -->
+                  <div class="col-12 text-white" style="min-height: 290px">
+                    <img th:src="@{/imagenes/Vestal.webp}" alt="vestal"  width="100%" height="100%"/>
+                  </div>
+
+                  <!-- carta-abajo -->
+                  <div class="col-12 text-white mt-auto" style="min-height: 40px">
+                    <div class="container_vida">
+                      <!-- Contenedor de la barra de vida -->
+                      <div class="progress" style="height: 10px">
+                        <div id="healthBar" class="progress-bar health-bar bg-success"
+                             role="progressbar" style="width: 100%" aria-valuenow="100"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+
+                      <!-- Porcentaje de vida -->
+                      <div class="text-center">
+                        <span id="healthValue" class="health-value">100%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                      class="col-3 d-flex align-items-center justify-content-center text-white min_height_carta">
+                <div class="row">
+                  <!-- carta-arriba -->
+                  <div class="col-12 text-white" style="min-height: 80px">
+                    45
+                  </div>
+
+                  <!-- carta-central -->
+                  <div class="col-12 text-white" style="min-height: 290px">
+                    <img th:src="@{/imagenes/cruzado.webp}" alt="cruzado"  width="100%" height="100%"/>
+                  </div>
+
+                  <!-- carta-abajo -->
+                  <div class="col-12 text-white mt-auto" style="min-height: 40px">
+                    <div class="container_vida">
+                      <!-- Contenedor de la barra de vida -->
+                      <div class="progress" style="height: 10px">
+                        <div id="healthBar" class="progress-bar health-bar bg-success"
+                             role="progressbar" style="width: 100%" aria-valuenow="100"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+
+                      <!-- Porcentaje de vida -->
+                      <div class="text-center">
+                        <span id="healthValue" class="health-value">100%</span>
+                      </div>
+
+                      <!-- Controles para probar la barra de vida
+                      <div class="d-flex justify-content-center gap-2 mb-3">
+                      <button onclick="decreaseHealth(10)" class="btn btn-danger">
+                          <span>-10%</span>
+                      </button>
+
+                      <button onclick="decreaseHealth(25)" class="btn btn-danger">
+                          <span>-25%</span>
+                      </button>
+
+                      <button onclick="increaseHealth(10)" class="btn btn-primary">
+                          <span>+10%</span>
+                      </button>
+
+                      <button onclick="resetHealth()" class="btn btn-secondary">
+                          <span>Reset</span>
+                      </button>
+                  </div>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 text-white text-center min_height_420px">
+          <div class="container" style="width: 700px; margin-right: 0px">
+            <div class="row">
+              <div
+                      class="col-3 d-flex align-items-center justify-content-center text-white min_height_carta">
+                <div class="row">
+                  <!-- carta-arriba -->
+                  <div class="col-12 text-white" style="min-height: 80px">
+                    50
+                  </div>
+
+                  <!-- carta-central -->
+                  <div class="col-12 text-white" style="min-height: 290px">
+                    <img th:src="@{/imagenes/Brigand_Hunter.webp}" alt="Brigand_Hunter" width="100%"
+                         height="100%" style="transform: scaleX(-1);"/>
+                  </div>
+
+                  <!-- carta-abajo -->
+                  <div class="col-12 text-white mt-auto" style="min-height: 40px">
+                    <div class="container_vida">
+                      <!-- Contenedor de la barra de vida -->
+                      <div class="progress" style="height: 10px">
+                        <div id="healthBar" class="progress-bar health-bar bg-success"
+                             role="progressbar" style="width: 100%" aria-valuenow="100"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+
+                      <!-- Porcentaje de vida -->
+                      <div class="text-center">
+                        <span id="healthValue" class="health-value">100%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                      class="col-3 d-flex align-items-center justify-content-center text-white min_height_carta">
+                33
+              </div>
+              <div
+                      class="col-3 d-flex align-items-center justify-content-center text-white min_height_carta">
+                34
+              </div>
+              <div
+                      class="col-3 d-flex align-items-center justify-content-center text-white min_height_carta">
+                35
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fila 3 (abajo de todo) -->
+    <div class="row" style="background-color: #1e1717">
+      <!-- Caja "3" a la izquierda (col-span-3) -->
+      <div class="col-md-6">
+        <div class="text-white p-1">
+          <div class="container">
+            <!-- Fila superior: ocupa     todoo ancho -->
+            <div class="row">
+              <div class="col-12">
+                <div class="encabezado_grid text-white">
+                  <div class="celda-1" style="text-align: center">
+                    <img th:src="@{/imagenes/guerrero.png}" alt="guerrero" width="80px" height="80px" />
+                  </div>
+                  <div class="celda-2">
+                    Reynauld <br />
+                    Cruzado
+                  </div>
+
+                  <div class="celda-3" style="text-align: center">
+                    <img   th:src="@{/imagenes/espada.png}"  width="70px" height="70px" />
+                  </div>
+                  <div class="celda-4" style="text-align: center">
+                    <img   th:src="@{/imagenes/acusacion.png}"  width="70px" height="70px" />
+                  </div>
+                  <div class="celda-5" style="text-align: center">
+                    <img   th:src="@{/imagenes/espada_2.png}"  width="70px" height="70px" />
+                  </div>
+                  <div class="celda-6" style="text-align: center">
+                    <img   th:src="@{/imagenes/espada.png}"  width="70px" height="70px" />
+                  </div>
+                  <div class="celda-7" style="text-align: center">
+                    <img   th:src="@{/imagenes/cambio_de_lugar.png}"  width="70px"
+                         height="70px" />
+                  </div>
+                  <div class="celda-8" style="text-align: center">
+                    <img   th:src="@{/imagenes/cruz.png}"  width="30px" height="70px" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fila principal: 2 columnas -->
+          <div class="row">
+            <!-- Columna izquierda (2/6 = col-4) -->
+            <div class="col-md-4">
+              <div class="bg-black text-white p-3 mb-2" style="height: 250px">
+                <div class="row">
+                  <div class="barra_de_estado_vida_grad">
+                    <img   th:src="@{/imagenes/corazon.webp}" alt="corazon" width="25px" height="20px" />
+                    <span>23/33</span>
+                  </div>
+
+                  <div class="barra_de_estado_estres_grad">
+                    <img   th:src="@{/imagenes/estres.png}" alt="escudo" width="20px" height="20px" />
+                    <span>5/200</span>
+                  </div>
+                </div>
+                <div class="row" style="margin: 0px 30px 0px 30px">
+                  <div class="d_flex justify_content_s_bwt align_items_center">
+                    <span>PRE</span>
+                    <span>0</span>
+                  </div>
+                  <div class="d_flex justify_content_s_bwt align_items_center">
+                    <span>CRI</span>
+                    <span>3.0%</span>
+                  </div>
+                  <div class="d_flex justify_content_s_bwt align_items_center">
+                    <span>DÑO</span>
+                    <span>7-14</span>
+                  </div>
+                  <div class="d_flex justify_content_s_bwt align_items_center">
+                    <span>EVASION</span>
+                    <span>9</span>
+                  </div>
+                  <div class="d_flex justify_content_s_bwt align_items_center">
+                    <span>PROT</span>
+                    <span>0%</span>
+                  </div>
+                  <div class="d_flex justify_content_s_bwt align_items_center">
+                    <span>VEL</span>
+                    <span>1</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Columna derecha (4/6 = col-8) -->
+            <div class="col-md-8">
+              <div class="text-white" style="height: 250px">
+                <div class="contenedor-equipamiento">
+                  <!-- Sección izquierda: dos columnas verticales -->
+                  <div class="contenedor-equipamiento__left-section">
+                    <div class="contenedor-equipamiento__left-section__carta">
+                      <div class="contenedor-equipamiento__left-section__carta__subcarta">
+                        <div
+                                class="contenedor-equipamiento__left-section__carta__subcarta__item-num">
+                          <img   th:src="@{/imagenes/defensa.png}" alt="defensa" class="defense-icon"
+                               width="25px" height="25px" />
+                          <span
+                                  class="contenedor-equipamiento__left-section__carta__subcarta__item-num__num">1</span>
+                        </div>
+                        <div
+                                class="contenedor-equipamiento__left-section__carta__subcarta__item-img">
+                          <img   th:src="@{/imagenes/espada_equipamiento.png}"
+                               alt="espada_equipamiento" width="100%" height="100%" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="contenedor-equipamiento__left-section__carta">
+                      <div class="contenedor-equipamiento__left-section__carta__subcarta">
+                        <div
+                                class="contenedor-equipamiento__left-section__carta__subcarta__item-num">
+                          <img   th:src="@{/imagenes/ataque.png}" alt="defensa" class="defense-icon"
+                               width="25px" height="25px" />
+                          <span
+                                  class="contenedor-equipamiento__left-section__carta__subcarta__item-num__num">1</span>
+                        </div>
+                        <div
+                                class="contenedor-equipamiento__left-section__carta__subcarta__item-img">
+                          <img   th:src="@{/imagenes/chaleco_antibalas.png}"
+                               alt="chaleco equipamiento" width="100%" height="100%" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Sección derecha: una fila superior y dos columnas inferiores -->
+                  <div class="contenedor-equipamiento__right-section">
+                    <div class="contenedor-equipamiento__right-section__top-container">
+                      <img   th:src="@{/imagenes/bonificaciones.png}" width="30px" height="30px" />
+                    </div>
+
+                    <!-- Contenedor inferior con dos columnas (AUMENTADO) -->
+                    <div class="contenedor-equipamiento__right-section__abajo-conteiner">
+                      <div class="contenedor-equipamiento__right-section__abajo-conteiner__carta">
+                      </div>
+                      <div class="contenedor-equipamiento__right-section__abajo-conteiner__carta">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Caja "4" a la derecha (col-span-3, col-start-4 = segunda mitad) -->
+      <div class="col-md-6">
+        <div class="text-white p-1">
+          <div class="container">
+            <div class="row">
+              <div class="col-11" style="padding: 0px">
+                <div class="h-100">
+                  <div class="inventory-container">
+                    <div class="inventory-grid">
+                      <!-- Primera fila con ítems -->
+                      <div class="inventory-slot">
+                        <div class="item">
+                          <img   th:src="@{/imagenes/posion2.png}" alt="Poción verde"
+                               class="item-potion" />
+                          <span class="item-count"></span>
+                          <div class="item-border"></div>
+                        </div>
+                      </div>
+                      <div class="inventory-slot">
+                        <div class="item">
+                          <img   th:src="@{/imagenes/posion1.png}" alt="posion1" class="item-scroll" />
+                          <span class="item-count"></span>
+                          <div class="item-border"></div>
+                        </div>
+                      </div>
+                      <div class="inventory-slot">
+                        <div class="item">
+                          <img   th:src="@{/imagenes/alimento.png}" alt="alimento"
+                               class="item-weapon" />
+                          <span class="item-count"></span>
+                          <div class="item-border"></div>
+                        </div>
+                      </div>
+                      <div class="inventory-slot">
+                        <div class="item">
+                          <img   th:src="@{/imagenes/pala_cant4.png}" alt="Guantes"
+                               class="item-weapon" />
+                          <span class="item-count"></span>
+                          <div class="item-border"></div>
+                        </div>
+                      </div>
+                      <div class="inventory-slot">
+                        <div class="item">
+                          <img   th:src="@{/imagenes/llave.png}" alt="Llave" class="item-weapon" />
+                          <span class="item-count"></span>
+                          <div class="item-border"></div>
+                        </div>
+                      </div>
+                      <div class="inventory-slot">
+                        <div class="item">
+                          <img   th:src="@{/imagenes/antocha_cant_8.png}" alt="Antorcha"
+                               class="item-weapon" />
+                          <span class="item-count"></span>
+                          <div class="item-border"></div>
+                        </div>
+                      </div>
+                      <div class="inventory-slot">
+                        <div class="item">
+                          <img   th:src="@{/imagenes/antorcha_cant_4.png}" alt="Antorcha"
+                               class="item-weapon" />
+                          <span class="item-count"></span>
+                          <div class="item-border"></div>
+                        </div>
+                      </div>
+                      <div class="inventory-slot"></div>
+
+                      <!-- Segunda fila vacía -->
+                      <div class="inventory-slot"></div>
+                      <div class="inventory-slot"></div>
+                      <div class="inventory-slot"></div>
+                      <div class="inventory-slot"></div>
+                      <div class="inventory-slot"></div>
+                      <div class="inventory-slot"></div>
+                      <div class="inventory-slot"></div>
+                      <div class="inventory-slot"></div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-1" style="padding: 0px;">
+
+
+
+                <div class="h-100" style="display: flex;flex-direction: column;justify-content:center">
+                  <div class="peq" style="height: 180px;
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: space-around;">
+                    <img   th:src="@{/imagenes/mapa.png}" width="40px" height="80px"/>
+                    <img   th:src="@{/imagenes/provisiones (2).png}" width="40px" height="80px"/>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Variables globales
+    let health = 100;
+    const healthBar = document.getElementById("healthBar");
+    const healthValue = document.getElementById("healthValue");
+
+    // Función para descontar vida
+    function decreaseHealth(amount) {
+      health = Math.max(0, health - amount);
+      updateHealthBar();
+    }
+
+    // Función para aumentar vida (para pruebas)
+    function increaseHealth(amount) {
+      health = Math.min(100, health + amount);
+      updateHealthBar();
+    }
+
+    // Función para reiniciar la vida
+    function resetHealth() {
+      health = 100;
+      updateHealthBar();
+    }
+
+    // Función para actualizar la barra de vida
+    function updateHealthBar() {
+      // Actualizar el ancho de la barra
+      healthBar.style.width = health + "%";
+
+      // Actualizar el texto del porcentaje
+      healthValue.textContent = health + "%";
+
+      // Actualizar el atributo aria-valuenow para accesibilidad
+      healthBar.setAttribute("aria-valuenow", health);
+
+      // Cambiar el color según el porcentaje de vida
+      if (health > 50) {
+        healthBar.className = "progress-bar health-bar bg-success";
+      } else if (health > 25) {
+        healthBar.className = "progress-bar health-bar bg-warning";
+      } else {
+        healthBar.className = "progress-bar health-bar bg-danger";
+      }
+    }
+  </script>
+</main>
+<!-- /.container -->
+
+<!-- Boostrap core js -->
+<script type="text/javascript" th:src="@{webjars/bootstrap/5.2.0/js/bootstrap.min.js}"></script>
+</body>
+</html>
