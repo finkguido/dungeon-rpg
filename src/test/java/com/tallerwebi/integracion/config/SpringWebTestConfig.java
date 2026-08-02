@@ -1,5 +1,6 @@
 package com.tallerwebi.integracion.config;
 
+import com.tallerwebi.config.PasswordHasher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -21,6 +22,15 @@ public class SpringWebTestConfig implements WebMvcConfigurer {
     // Spring + Thymeleaf need this
     @Autowired
     private ApplicationContext applicationContext;
+
+    /**
+     * Los tests no escanean com.tallerwebi.config (para no cargar SpringWebConfig / DB init).
+     * ServicioLoginImpl necesita PasswordHasher, así que lo exponemos acá.
+     */
+    @Bean
+    public PasswordHasher passwordHasher() {
+        return new PasswordHasher();
+    }
 
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
