@@ -1,117 +1,114 @@
-Proyecto base Taller Web I (Maven and Thymeleaf)
-===============================
+# Dungeon Seekers
 
-## 1. Como iniciar el proyecto
-```shell
-$ mvn clean jetty:run
-# http://localhost:8080/spring
-```
-## 2. Thymeleaf
-* [Documentacion](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html)
+Juego web de rol (estilo dungeon crawler) desarrollado como **trabajo práctico universitario**.  
+Fuimos **2 personas**: yo implementé casi toda la aplicación (dominio del juego, pantallas, persistencia, tests y pulido del proyecto); mi compañero se encargó de la **integración con Mercado Pago**.
 
-## 3. Hamcrest
-* [Documentacion](https://hamcrest.org/JavaHamcrest/javadoc/2.2/)
+Este fue mi **primer proyecto serio en Java**.
 
-## 4. GitHub Actions
-* [Documentacion](https://docs.github.com/es/actions/quickstart)
+---
 
-## 5. Playwright
-* [Documentacion](https://playwright.dev/java/docs/intro)
+## ¿Qué es?
 
-## 6. Jetty
-* [Documentacion](https://eclipse.dev/jetty/documentation/jetty-9/index.html#maven-and-jetty)
+En *Dungeon Seekers* el jugador gestiona héroes, arma un carruaje, compra ítems, cura en el santuario y avanza por **expediciones** con **mazmorras** y combates por turnos. También hay ranking entre jugadores y compra de oro con Mercado Pago.
 
-## 7. Como correr las pruebas de punta a punta
+### Funcionalidades principales
 
-### Iniciar el servidor
-```shell
-$ mvn clean jetty:run
-```
-### Correr las pruebas en otra terminal
-```shell
-$ mvn test -Dtest="VistaLoginE2E"
-```
+- Registro e inicio de sesión (contraseñas hasheadas con BCrypt)
+- Reclutamiento de héroes y gestión del carruaje
+- Tienda de ítems y economía con oro
+- Santuario de curación
+- Combate por turnos (atacar / defender) en mazmorras
+- Progresión por expediciones y niveles de mazmorra
+- Ranking de jugadores
+- Compra de oro con Mercado Pago (aporte del compañero)
 
-## 8. Como correr las pruebas unitarias de javascript
-```shell
-$ cd src/main/webapp/resources/core/js
-// Si es la primera vez debo descargar las dependencias
-$ npm install
-// Ejecuto las pruebas
-$ npm test
-```
+---
 
-## 9. Docker:
-Los archivos de docker de este proyecto estan preparados para desplegar un archivo WAR usando el servido Jetty o Tomcat
-El archivo de docker para Jetty y Tomcat esperan que el archivo WAR se debe llamar "tallerwebi-base-1.0-SNAPSHOT" para eso debemos modificar los atributos <artifactId> y <version> del archivo pom.xml 
+## Stack técnico
 
-Para generar un archivo WAR debemos ejecutar maven
-```shell
-mvn clean package
-```
+| Área | Tecnología |
+|------|------------|
+| Lenguaje | Java 11 |
+| Framework | Spring MVC 5 |
+| Vistas | Thymeleaf + Bootstrap |
+| Persistencia | Hibernate + JDBC (JdbcTemplate) |
+| Base de datos | HSQLDB (embebida) |
+| Build / servidor | Maven + Jetty embebido |
+| Seguridad de claves | BCrypt (`spring-security-crypto`) |
+| Pagos | Mercado Pago SDK |
+| Tests | JUnit 5, Mockito, Spring Test, Playwright (E2E) |
 
-Una vez que tenemos el archivo WAR, debemos generar la imagen de docker
-```shell
-docker build -f DockerfileJetty -t tallerwebi .
-docker build -f DockerfileTomcat -t tallerwebi .
+---
+
+## Cómo correrlo
+
+### Requisitos
+
+- JDK 11 o superior
+- Apache Maven 3.8+
+
+### Ejecutar
+
+```bash
+mvn clean jetty:run
 ```
 
-Una vez que tenemos la imagen generada, podemos instanciar un contenedor y ejecutarlo.
-```shell
-docker run -p 8080:8080 tallerwebi
+Abrí en el navegador:
+
+**http://localhost:8080/spring**
+
+### Tests
+
+```bash
+mvn clean test
 ```
 
-### 9. Comandos básicod:
-```shell
-# Crear una imagen con el nombre "tallerwebi".
-docker build -f DockerfileJetty -t tallerwebi .
+### Mercado Pago (opcional)
 
-# Instancia y ejecuta un contendor en base a la imagen "tallerwebi". 
-docker run -p 8080:8080 tallerwebi 
+Para probar compras de oro necesitás configurar credenciales locales (no se suben al repo):
 
-# Ejecuta un contendor ya instanciado.
-docker start <containerId> 
+1. Copiá el ejemplo:
+   ```bash
+   cp src/main/resources/application-local.properties.example src/main/resources/application-local.properties
+   ```
+2. Completá `mp.access-token` y, si usás ngrok u otra URL pública, `app.base-url`.
 
-# Instancia un contendor en base a la imagen tallerwebi para ejecutar bash.
-docker run -it --entrypoint /bin/bash tallerwebi
+También podés usar las variables de entorno `MP_ACCESS_TOKEN` y `APP_BASE_URL`.
 
-# Muestra los logs.
-docker logs <containerId>
+---
 
-# Muestra todos los contenedores creados.
-docker ps -a 
+## Estructura del proyecto
 
-# Muestra todas las imagenes creadas.
-docker images
+```text
+src/main/java/com/tallerwebi/
+├── config/            # Spring, Hibernate, hashing, Mercado Pago settings
+├── dominio/           # Entidades, servicios y excepciones
+├── infraestructura/   # Repositorios (persistencia)
+└── presentacion/      # Controladores MVC
 
-# Elimina un contenedor.
-docker rm <containerId>
-
-# Elimina una imagen.
-docker rmi <imageId>
-
-# Crear una imagen con el nombre "mysql".
-docker build -f DockerfileSQL -t mysql .
-
-# Instancia un contendor en base a la imagen mysql.
-docker run --name mysql-container -d -p 3306:3306 mysql # sudo apt install mysql-client
+src/main/webapp/       # Vistas Thymeleaf, CSS, JS e imágenes
+src/test/java/         # Tests unitarios, de integración y E2E
 ```
 
-## 9. Tecnologías:
-* Java 11
-* Spring 5.2.22.RELEASE
-* Thymeleaf 3.0.15.RELEASE
-* Embedded Jetty Server 9.4.45.v20220203
-* Servlet API 4.0.4
-* Bootstrap 5.2.0 (webjars)
-* IntelliJ IDEA
-* Maven 3.8.6
-* Spring Test 5.2.22.RELEASE
-* Hamcrest 2.2
-* JUnit 5.9
-* Hibernate 5.4.24.Final
-* Mockito 5.3.1
-* Playwright 1.36.0
-* Node 18.16.1 o superior <- Instalación manual desde la [página de node](https://nodejs.org/en) 
+---
 
-*_Proyecto modificado en base a: [Spring MVC hello world example (Maven and Thymeleaf)](https://mkyong.com/spring-mvc/spring-mvc-hello-world-example/) _*
+## Lo que aprendí
+
+Este fue mi primer proyecto serio en Java. Más allá de “hacer que ande”, me obligó a pensar la app en capas y a resolver problemas reales de un sistema web:
+
+- **Arquitectura en capas** con Spring MVC: separar presentación, servicios y persistencia (controladores, lógica de negocio y repositorios).
+- **Modelar un dominio de juego** no trivial: expediciones, mazmorras, combates, héroes, carruaje, tienda, santuario y ranking, con reglas que se cruzan entre módulos.
+- **Persistencia con Hibernate/JDBC** y una base embebida (HSQLDB), incluyendo relaciones entre entidades y el ciclo de una partida.
+- **Autenticación básica** con sesión HTTP y **contraseñas hasheadas con BCrypt** (no guardar texto plano).
+- **Tests** unitarios y de integración con JUnit/Mockito/Spring Test, y por qué el contexto de Spring en tests tiene que declarar los beans que usa la app.
+- **Trabajo en equipo en un TP real**: coordinar un repo compartido y sumar una integración externa (Mercado Pago) hecha por mi compañero, sin romper el resto del sistema.
+- **Pulir un proyecto académico para portfolio**: limpiar secretos, basura de entrega, nombres inconsistentes y dejarlo documentado y ejecutable.
+
+---
+
+## Créditos
+
+- **Guido Fink** — lógica del juego, capas de la aplicación, UI, persistencia, tests y preparación del repo para portfolio  
+- **Compañero de TP** — integración con Mercado Pago  
+
+Proyecto académico universitario (Taller Web).
