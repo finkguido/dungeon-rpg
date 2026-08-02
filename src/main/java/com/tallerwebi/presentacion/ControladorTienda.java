@@ -37,7 +37,6 @@ public class ControladorTienda {
     public String comprar(@RequestParam Long itemId, HttpServletRequest request, RedirectAttributes redirectAttributes) {
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
 
-        //ModelAndView mav = new ModelAndView("tienda");
         ModelMap model = new ModelMap();
         model.addAttribute("usuario",usuario);
 

@@ -68,30 +68,6 @@ public class RepositorioCarruajeTest {
         assertThat(nuevoCarruaje.getId(), greaterThan(0L));
     }
 
-//    @Test
-//    @Transactional
-//    @Rollback
-//    public void queNoSePuedaGuardarCarruajeConIdExistente() {
-//        repositorioCarruaje.guardar(carruajeMock1); // Guarda el primer carruaje
-//
-//        Carruaje nuevoCarruaje = new Carruaje();
-//        nuevoCarruaje.setId(carruajeMock1.getId()); // Usa el mismo id
-//        nuevoCarruaje.setNivel(1);
-//        nuevoCarruaje.setSemana(1);
-//        nuevoCarruaje.setCantidadDeHeroesSemanales(3);
-//        repositorioCarruaje.guardar(nuevoCarruaje);
-//
-//        List<Carruaje> lc = repositorioCarruaje.getListaDeCarruajes();
-//
-//        assertThat(lc.isEmpty(), equalTo(false));
-//        System.out.println(lc.get(0).getId());
-//        System.out.println(lc.get(1).getId());
-//
-//        assertThat(lc.size(), equalTo(1));
-//        assertThat(lc.get(0).getId(), notNullValue());
-//
-//    }
-
     @Test
     @Transactional
     @Rollback

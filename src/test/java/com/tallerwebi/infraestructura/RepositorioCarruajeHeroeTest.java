@@ -30,7 +30,7 @@ import static org.hamcrest.Matchers.notNullValue;
         HibernateTestConfig.class,
         HibernateConfig.class
 })
-public class Repositorio_carruajeHeroeTest {
+public class RepositorioCarruajeHeroeTest {
 
     private Usuario usuarioMock;
     private Heroe heroeMock1;
@@ -49,7 +49,7 @@ public class Repositorio_carruajeHeroeTest {
     private RepositorioUsuario repositorioUsuario;
 
     @Autowired
-    private Repositorio_carruajeHeroe repositorio_carruajeHeroe;
+    private RepositorioCarruajeHeroe repositorioCarruajeHeroe;
 
     @BeforeEach
     public void init(){
@@ -81,11 +81,11 @@ public class Repositorio_carruajeHeroeTest {
         repositorioCarruaje.asignarUsuarioAUnCarruje(carruajeGuardado,usuarioBus);
 
 
-        repositorio_carruajeHeroe.agregarRelacion(carruajeGuardado,heroeMock1);
-        repositorio_carruajeHeroe.agregarRelacion(carruajeGuardado,heroeMock2);
+        repositorioCarruajeHeroe.agregarRelacion(carruajeGuardado,heroeMock1);
+        repositorioCarruajeHeroe.agregarRelacion(carruajeGuardado,heroeMock2);
 
 
-        List<Heroe> listaHeroes =  repositorio_carruajeHeroe.getListaDeHeroes(carruajeGuardado.getId());
+        List<Heroe> listaHeroes =  repositorioCarruajeHeroe.getListaDeHeroes(carruajeGuardado.getId());
 
         assertThat(carruajeGuardado.getId(), notNullValue());
         assertThat(listaHeroes,notNullValue());
@@ -107,11 +107,11 @@ public class Repositorio_carruajeHeroeTest {
         repositorioCarruaje.guardar(carruajeMock1);
         repositorioCarruaje.guardar(carruajeMock2);
 
-        repositorio_carruajeHeroe.agregarRelacion(carruajeMock2,heroeMock1);
-        repositorio_carruajeHeroe.agregarRelacion(carruajeMock2,heroeMock2);
+        repositorioCarruajeHeroe.agregarRelacion(carruajeMock2,heroeMock1);
+        repositorioCarruajeHeroe.agregarRelacion(carruajeMock2,heroeMock2);
 
 
-        List<Heroe> listaHeroes =  repositorio_carruajeHeroe.getListaDeHeroes(carruajeMock2.getId());
+        List<Heroe> listaHeroes =  repositorioCarruajeHeroe.getListaDeHeroes(carruajeMock2.getId());
 
         assertThat(listaHeroes,notNullValue());
         assertThat(listaHeroes.isEmpty(),equalTo(false));
@@ -132,14 +132,14 @@ public class Repositorio_carruajeHeroeTest {
         repositorioCarruaje.guardar(carruajeMock1);
         repositorioCarruaje.guardar(carruajeMock2);
 
-        repositorio_carruajeHeroe.agregarRelacion(carruajeMock2,heroeMock1);
-        repositorio_carruajeHeroe.agregarRelacion(carruajeMock2,heroeMock2);
+        repositorioCarruajeHeroe.agregarRelacion(carruajeMock2,heroeMock1);
+        repositorioCarruajeHeroe.agregarRelacion(carruajeMock2,heroeMock2);
 
 
-        CarruajeHeroe relacion  = repositorio_carruajeHeroe.buscarRelacion(carruajeMock2,heroeMock1);
-        repositorio_carruajeHeroe.removerRelacion(relacion);
+        CarruajeHeroe relacion  = repositorioCarruajeHeroe.buscarRelacion(carruajeMock2,heroeMock1);
+        repositorioCarruajeHeroe.removerRelacion(relacion);
 
-        List<Heroe> listaHeroes =  repositorio_carruajeHeroe.getListaDeHeroes(carruajeMock2.getId());
+        List<Heroe> listaHeroes =  repositorioCarruajeHeroe.getListaDeHeroes(carruajeMock2.getId());
         assertThat(listaHeroes,notNullValue());
         assertThat(listaHeroes.isEmpty(),equalTo(false));
         assertThat(listaHeroes.size(),equalTo(1));

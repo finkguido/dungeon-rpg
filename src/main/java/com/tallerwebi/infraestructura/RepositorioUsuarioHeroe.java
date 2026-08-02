@@ -6,7 +6,7 @@ import com.tallerwebi.dominio.entidades.UsuarioHeroe;
 
 import java.util.List;
 
-public interface Repositorio_usuarioHeroe {
+public interface RepositorioUsuarioHeroe {
     UsuarioHeroe buscarRelacion(Usuario usuarioBuscado, Heroe heroeBuscado);
 
     void agregarRelacion(Usuario usuarioBuscado, Heroe heroeBuscado);

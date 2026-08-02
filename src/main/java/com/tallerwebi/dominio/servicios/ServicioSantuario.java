@@ -5,7 +5,7 @@ import com.tallerwebi.dominio.entidades.Usuario;
 
 import java.util.List;
 
-public interface ServicioSanatorio {
+public interface ServicioSantuario {
     List<Heroe> obtenerHeroesCurables(Usuario usuario);
 
     void curarHeroe(Usuario usuario, Long idHeroe);

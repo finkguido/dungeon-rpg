@@ -1,9 +1,10 @@
 INSERT INTO Usuario (id, email, password, rol, activo, nombre, oro, expedicionActual, mazmorraActual, inventario_id)
 VALUES
-  (1, 'test@unlam.edu.ar', 'test', 'ADMIN', TRUE,  'Héroe',      1000, 1, 3, null),
-  (2, 'otro@ejemplo.com',  '1234', 'ADMIN', TRUE,  'Aventurero',  500, 1, 2, null),
-  (3, 'jugador3@game.com', '123',  'USER',  TRUE,  'Usuario 3', 1000, 3, 1, null),
-  (4, 'jugador4@game.com', '123',  'USER',  TRUE,  'Usuario 4', 3000, 2, 3, null);
+  -- Contraseñas hasheadas con BCrypt (texto plano original: test / 1234 / 123)
+  (1, 'admin@dungeon.local', '$2b$10$FVwnVjiUNGF4NAEYYGg4rec8fLmsuJNRUWNPPFTiCnyFrhW0fqrSC', 'ADMIN', TRUE,  'Héroe',      1000, 1, 3, null),
+  (2, 'otro@ejemplo.com',  '$2b$10$wmQo7Duh3OCh1BPjXDKQ2OaQ/JCqATA7/jsA9iB0Y4DDfOcis9Ke6', 'ADMIN', TRUE,  'Aventurero',  500, 1, 2, null),
+  (3, 'jugador3@game.com', '$2b$10$e4JBS0NalALR/mf3uQvN8eSD5xIaQFcpAvPyyTX3VIcSCok5LZeTm',  'USER',  TRUE,  'Usuario 3', 1000, 3, 1, null),
+  (4, 'jugador4@game.com', '$2b$10$e4JBS0NalALR/mf3uQvN8eSD5xIaQFcpAvPyyTX3VIcSCok5LZeTm',  'USER',  TRUE,  'Usuario 4', 3000, 2, 3, null);
 
 
 INSERT INTO game_session (usuario_id, turno, nivel, active, finished, started_at, ended_at)

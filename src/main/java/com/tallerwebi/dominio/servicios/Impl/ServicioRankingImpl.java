@@ -1,4 +1,4 @@
-package com.tallerwebi.dominio.servicios.Impl;
+package com.tallerwebi.dominio.servicios.impl;
 
 import com.tallerwebi.dominio.entidades.Usuario;
 import com.tallerwebi.infraestructura.RepositorioUsuario;

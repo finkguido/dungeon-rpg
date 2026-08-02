@@ -1,7 +1,7 @@
 package com.tallerwebi.dominio;
 
 import com.tallerwebi.dominio.entidades.Usuario;
-import com.tallerwebi.dominio.servicios.Impl.ServicioRankingImpl;
+import com.tallerwebi.dominio.servicios.impl.ServicioRankingImpl;
 import com.tallerwebi.infraestructura.RepositorioUsuario;
 import com.tallerwebi.dominio.servicios.ServicioRanking;
 import org.junit.jupiter.api.BeforeEach;

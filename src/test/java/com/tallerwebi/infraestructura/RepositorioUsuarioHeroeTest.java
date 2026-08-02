@@ -28,7 +28,7 @@ import static org.hamcrest.Matchers.notNullValue;
         HibernateTestConfig.class,
         HibernateConfig.class
 })
-public class Reepositorio_usuarioHeroeTest {
+public class RepositorioUsuarioHeroeTest {
 
     private Heroe heroeMock1;
     private Heroe heroeMock2;
@@ -42,7 +42,7 @@ public class Reepositorio_usuarioHeroeTest {
     private RepositorioUsuario repositorioUsuario;
 
     @Autowired
-    private Repositorio_usuarioHeroe repositorio_usuarioHeroe;
+    private RepositorioUsuarioHeroe repositorioUsuarioHeroe;
 
     @BeforeEach
     public void init(){
@@ -52,31 +52,6 @@ public class Reepositorio_usuarioHeroeTest {
         usuarioMock1 = new Usuario(1L,"u1");
         usuarioMock2 = new Usuario(2L,"u2");
     }
-
-//    @Test
-//    @Transactional
-//    @Rollback
-//    public void queSePuedaPuedaObtenerLaListaDeHeroesDeUnUsuario() {
-//
-//        repositorioHeroe.guardar(heroeMock1);
-//        repositorioHeroe.guardar(heroeMock2);
-//
-//        repositorioUsuario.guardar(usuarioMock1);
-//        repositorioUsuario.guardar(usuarioMock2);
-//
-//        repositorio_usuarioHeroe.agregarRelacion(usuarioMock2,heroeMock1);
-//        repositorio_usuarioHeroe.agregarRelacion(usuarioMock2,heroeMock2);
-//
-//
-//        List<Heroe> listaHeroes =  repositorio_usuarioHeroe.getListaDeHeroes(usuarioMock2.getId());
-//
-//        assertThat(listaHeroes,notNullValue());
-//        assertThat(listaHeroes.isEmpty(),equalTo(false));
-//        assertThat(listaHeroes.size(),equalTo(2));
-//        assertThat(listaHeroes.get(0),notNullValue());
-//        assertThat(listaHeroes.get(0).getId(),notNullValue());
-//        assertThat(listaHeroes.get(0).getId(),equalTo(heroeMock1.getId()));
-//    }
 
     @Test
     @Transactional
@@ -89,11 +64,11 @@ public class Reepositorio_usuarioHeroeTest {
         repositorioUsuario.guardar(usuarioMock1);
         repositorioUsuario.guardar(usuarioMock2);
 
-        repositorio_usuarioHeroe.agregarRelacion(usuarioMock2,heroeMock1);
-        repositorio_usuarioHeroe.agregarRelacion(usuarioMock2,heroeMock2);
+        repositorioUsuarioHeroe.agregarRelacion(usuarioMock2,heroeMock1);
+        repositorioUsuarioHeroe.agregarRelacion(usuarioMock2,heroeMock2);
 
 
-        List<Heroe> listaHeroes =  repositorio_usuarioHeroe.getListaDeHeroes(usuarioMock2.getId());
+        List<Heroe> listaHeroes =  repositorioUsuarioHeroe.getListaDeHeroes(usuarioMock2.getId());
 
         assertThat(listaHeroes,notNullValue());
         assertThat(listaHeroes.isEmpty(),equalTo(false));

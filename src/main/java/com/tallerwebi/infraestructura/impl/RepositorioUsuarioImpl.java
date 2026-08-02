@@ -26,20 +26,6 @@ public class RepositorioUsuarioImpl implements RepositorioUsuario {
     private RepositorioInventario repositorioInventario;
 
     @Override
-    public Usuario buscarUsuario(String email, String password) {
-        try {
-            return jdbc.queryForObject(
-                    "SELECT id, email, password, rol, activo, nombre, oro, inventario_id " +
-                            "FROM Usuario WHERE email = ? AND password = ?",
-                    this::mapRowToUsuario,
-                    email, password
-            );
-        } catch (EmptyResultDataAccessException ex) {
-            return null;
-        }
-    }
-
-    @Override
     public void guardar(Usuario u) {
         jdbc.update(
                 "INSERT INTO Usuario " +

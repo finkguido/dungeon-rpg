@@ -6,7 +6,7 @@ import com.tallerwebi.dominio.entidades.Heroe;
 
 import java.util.List;
 
-public interface Repositorio_carruajeHeroe {
+public interface RepositorioCarruajeHeroe {
     List<Heroe> getListaDeHeroes(Long id);
 
     CarruajeHeroe buscarRelacion(Carruaje carruajeBuscado, Heroe heroeBuscado);

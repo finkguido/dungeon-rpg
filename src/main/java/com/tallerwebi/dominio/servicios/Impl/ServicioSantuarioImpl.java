@@ -1,9 +1,9 @@
-package com.tallerwebi.dominio.servicios.Impl;
+package com.tallerwebi.dominio.servicios.impl;
 
 import com.tallerwebi.dominio.servicios.ServicioJuego;
 import com.tallerwebi.dominio.entidades.*;
 
-import com.tallerwebi.dominio.servicios.ServicioSanatorio;
+import com.tallerwebi.dominio.servicios.ServicioSantuario;
 import com.tallerwebi.infraestructura.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,9 +13,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ServicioSanatorioImpl implements ServicioSanatorio {
+public class ServicioSantuarioImpl implements ServicioSantuario {
 
-    private final Repositorio_carruajeHeroe repositorioCarruajeHeroe;
+    private final RepositorioCarruajeHeroe repositorioCarruajeHeroe;
     private final RepositorioHeroe repositorioHeroe;
     private final RepositorioUsuario repositorioUsuario;
     private final RepositorioCarruaje repositorioCarruaje;
@@ -25,8 +25,8 @@ public class ServicioSanatorioImpl implements ServicioSanatorio {
 
 
     @Autowired
-    public ServicioSanatorioImpl(
-            Repositorio_carruajeHeroe repositorioCarruajeHeroe,
+    public ServicioSantuarioImpl(
+            RepositorioCarruajeHeroe repositorioCarruajeHeroe,
             RepositorioHeroe repositorioHeroe,
             RepositorioUsuario repositorioUsuario, RepositorioCarruaje repositorioCarruaje, RepositorioSession sessionRepo, RepositorioHeroSession shRepo, ServicioJuego servicioJuego
     ) {

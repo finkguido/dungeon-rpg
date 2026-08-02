@@ -1,4 +1,4 @@
-package com.tallerwebi.dominio.servicios.Impl;
+package com.tallerwebi.dominio.servicios.impl;
 
 import com.tallerwebi.dominio.excepcion.ReclutaException;
 import com.tallerwebi.dominio.entidades.*;
@@ -18,21 +18,21 @@ public class ServicioReclutaImpl implements ServicioRecluta {
     private final RepositorioCarruaje repositorioCarruaje;
     private final RepositorioHeroe repositorioHeroe;
     private final RepositorioUsuario repositorioUsuario;
-    private final Repositorio_carruajeHeroe repositorio_carruajeHeroe;
-    private final Repositorio_usuarioHeroe repositorio_usuarioHeroe;
+    private final RepositorioCarruajeHeroe repositorioCarruajeHeroe;
+    private final RepositorioUsuarioHeroe repositorioUsuarioHeroe;
 
 
     @Autowired
     public ServicioReclutaImpl(RepositorioCarruaje repositorioCarruaje,
                                RepositorioHeroe repositorioHeroe,
                                RepositorioUsuario repositorioUsuario,
-                               Repositorio_carruajeHeroe repositorio_carruajeHeroe,
-                               Repositorio_usuarioHeroe repositorio_usuarioHeroe) {
+                               RepositorioCarruajeHeroe repositorioCarruajeHeroe,
+                               RepositorioUsuarioHeroe repositorioUsuarioHeroe) {
         this.repositorioCarruaje = repositorioCarruaje;
         this.repositorioHeroe = repositorioHeroe;
         this.repositorioUsuario = repositorioUsuario;
-        this.repositorio_carruajeHeroe = repositorio_carruajeHeroe;
-        this.repositorio_usuarioHeroe = repositorio_usuarioHeroe;
+        this.repositorioCarruajeHeroe = repositorioCarruajeHeroe;
+        this.repositorioUsuarioHeroe = repositorioUsuarioHeroe;
 
     }
 
@@ -45,7 +45,7 @@ public class ServicioReclutaImpl implements ServicioRecluta {
         }
 
         List<Heroe> escogidos =
-                repositorio_carruajeHeroe.getListaDeHeroes(c.getId());
+                repositorioCarruajeHeroe.getListaDeHeroes(c.getId());
 
         if (escogidos.isEmpty()) {
             throw new ReclutaException("No hay heroes disponibles por hoy");
@@ -89,9 +89,9 @@ public class ServicioReclutaImpl implements ServicioRecluta {
         Usuario u = repositorioUsuario.buscarUsuarioPorId(uid);
         Carruaje c = repositorioCarruaje.buscarCarruajeAsignadoAUnUsuario(u);
         Heroe h = repositorioHeroe.buscarHeroePorId(hid);
-        CarruajeHeroe rel = repositorio_carruajeHeroe.buscarRelacion(c, h);
+        CarruajeHeroe rel = repositorioCarruajeHeroe.buscarRelacion(c, h);
         if (rel != null) {
-            repositorio_carruajeHeroe.removerRelacion(rel);
+            repositorioCarruajeHeroe.removerRelacion(rel);
         }
     }
 
@@ -105,10 +105,10 @@ public class ServicioReclutaImpl implements ServicioRecluta {
         if(heroeBuscado == null)  throw new RuntimeException("No se encontro heroe");
         if(carruajeBuscado == null) throw new RuntimeException("No se encontro carruaje");
 
-        CarruajeHeroe carruajeHeroeBuscado  = repositorio_carruajeHeroe.buscarRelacion(carruajeBuscado,heroeBuscado);
+        CarruajeHeroe carruajeHeroeBuscado  = repositorioCarruajeHeroe.buscarRelacion(carruajeBuscado,heroeBuscado);
 
         if(carruajeHeroeBuscado == null) {
-            repositorio_carruajeHeroe.agregarRelacion(carruajeBuscado,heroeBuscado);
+            repositorioCarruajeHeroe.agregarRelacion(carruajeBuscado,heroeBuscado);
         }
 
         if(carruajeHeroeBuscado != null) throw new RuntimeException("Error, ya existe la relacion entre carruaje y heroe");
@@ -134,8 +134,8 @@ public class ServicioReclutaImpl implements ServicioRecluta {
             if (listaHeroesExistentes.isEmpty()) throw new RuntimeException("La lista esta vacia o nula");
 
             repositorioCarruaje.asignarUsuarioAUnCarruje(carruaje,usuarioBuscado);
-            repositorio_carruajeHeroe.agregarRelacion(carruaje,listaHeroesExistentes.get(0));
-            repositorio_carruajeHeroe.agregarRelacion(carruaje,listaHeroesExistentes.get(1));
+            repositorioCarruajeHeroe.agregarRelacion(carruaje,listaHeroesExistentes.get(0));
+            repositorioCarruajeHeroe.agregarRelacion(carruaje,listaHeroesExistentes.get(1));
             return carruaje;
         }
 
@@ -154,10 +154,10 @@ public class ServicioReclutaImpl implements ServicioRecluta {
 
         if(usuarioBuscado == null) throw new RuntimeException("No se encontro usuario");
 
-        UsuarioHeroe usuarioHeroeBus  = repositorio_usuarioHeroe.buscarRelacion(usuarioBuscado,heroeBuscado);
+        UsuarioHeroe usuarioHeroeBus  = repositorioUsuarioHeroe.buscarRelacion(usuarioBuscado,heroeBuscado);
 
         if(usuarioHeroeBus == null) {
-            repositorio_usuarioHeroe.agregarRelacion(usuarioBuscado,heroeBuscado);
+            repositorioUsuarioHeroe.agregarRelacion(usuarioBuscado,heroeBuscado);
         }
         if(usuarioHeroeBus != null) throw new RuntimeException("Este heroe ya existe en el usuario");
     }
@@ -169,7 +169,7 @@ public class ServicioReclutaImpl implements ServicioRecluta {
 
         if(usuarioBus == null) throw new RuntimeException("No se encontro el Usuario");
 
-        List<Heroe> listaDeHeroes = repositorio_usuarioHeroe.getListaDeHeroes(idUsuario);
+        List<Heroe> listaDeHeroes = repositorioUsuarioHeroe.getListaDeHeroes(idUsuario);
 
         if(listaDeHeroes == null) throw new RuntimeException("La lista es nula");
         if(listaDeHeroes.isEmpty()) throw new RuntimeException("La lista no tiene heroes");
@@ -182,7 +182,7 @@ public class ServicioReclutaImpl implements ServicioRecluta {
     public List<Heroe> getListaDeHeroesEnCarruaje(Long uid) {
         Usuario u = repositorioUsuario.buscarUsuarioPorId(uid);
         Carruaje c = repositorioCarruaje.buscarCarruajeAsignadoAUnUsuario(u);
-        return repositorio_carruajeHeroe.getListaDeHeroes(c.getId());
+        return repositorioCarruajeHeroe.getListaDeHeroes(c.getId());
     }
 
 
@@ -193,7 +193,7 @@ public class ServicioReclutaImpl implements ServicioRecluta {
 
         if(usuarioBuscado == null)  throw new RuntimeException("No se encontro el usuario");
 
-        List<Heroe> listaDeHeroes = repositorio_usuarioHeroe.getListaDeHeroes(usuarioBuscado.getId());
+        List<Heroe> listaDeHeroes = repositorioUsuarioHeroe.getListaDeHeroes(usuarioBuscado.getId());
 
         if(listaDeHeroes == null) {listaDeHeroes = new ArrayList<>();}
 
@@ -207,7 +207,7 @@ public class ServicioReclutaImpl implements ServicioRecluta {
         Usuario u = repositorioUsuario.buscarUsuarioPorId(uid);
         Carruaje c = repositorioCarruaje.buscarCarruajeAsignadoAUnUsuario(u);
         List<Heroe> todos     = repositorioHeroe.getListaDeHeroes();
-        List<Heroe> escogidos = repositorio_carruajeHeroe.getListaDeHeroes(c.getId());
+        List<Heroe> escogidos = repositorioCarruajeHeroe.getListaDeHeroes(c.getId());
         return todos.stream()
                 .filter(h -> !escogidos.contains(h))
                 .collect(Collectors.toList());
@@ -219,7 +219,7 @@ public class ServicioReclutaImpl implements ServicioRecluta {
         Carruaje c = repositorioCarruaje
                 .buscarCarruajeAsignadoAUnUsuario(u);
 
-        return repositorio_carruajeHeroe.getListaDeHeroes(c.getId());
+        return repositorioCarruajeHeroe.getListaDeHeroes(c.getId());
     }
 
     @Override
@@ -235,7 +235,7 @@ public class ServicioReclutaImpl implements ServicioRecluta {
         u.setOro(u.getOro() - h.getPrecio());
         repositorioUsuario.modificar(u);
 
-        repositorio_carruajeHeroe.agregarRelacion(c, h);
+        repositorioCarruajeHeroe.agregarRelacion(c, h);
     }
 
 
@@ -248,9 +248,9 @@ public class ServicioReclutaImpl implements ServicioRecluta {
         u.setOro(u.getOro() + h.getPrecio());
         repositorioUsuario.modificar(u);
 
-        CarruajeHeroe rel = repositorio_carruajeHeroe.buscarRelacion(c, h);
+        CarruajeHeroe rel = repositorioCarruajeHeroe.buscarRelacion(c, h);
         if (rel != null) {
-            repositorio_carruajeHeroe.removerRelacion(rel);
+            repositorioCarruajeHeroe.removerRelacion(rel);
         }
     }
 
